@@ -20,10 +20,6 @@ To run the server, run `npm run server`. You should be able to load the site on 
 
 Any username is accepted, but the only password that is accepted is `theworkapp0$`. On successful login, the page redirects to `http://localhost:8000/success`. You can successfully log in regardless of whether you block or allow the `HTML5 Geolocation` popup.
 
-If I entered the username `joisdjfsdf` on the login page, here is a screenshot of the `/success` page:
-
-![Screenshot 2][Success]
-
 The site stores a cookie in your browser that will get written over on subsequent successful login attempts.
 
 ## Firebase Realtime Datastore
