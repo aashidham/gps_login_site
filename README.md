@@ -50,11 +50,21 @@ To run the testing suite, run `npm run test`. There are 5 total tests, stored in
 
 ## Next Steps
 
-1. The site needs to have a valid HTTPS certificate. It is unsafe to enter real passwords over an `http` connection. 
+1. The site needs to have a valid HTTPS certificate. It is unsafe to enter passwords over an `http` connection. 
 2. The Firebase DB needs to have restricted read / write rules so that only the webserver can write to it and the testing suite can read from it. 
 3. The login page needs to not accept only one password and many usernames. Instead, there needs to be a `register` flow so that accounts can be created. At this point, authentication will require the entering of the correct username / password pair.
 4. The webserver should not store the correct password in plaintext in the source code. Instead, the entered password needs to be hashed and salted using a module like `bcrypt`. At that point the hashed password can be stored in a database and compared to entered one.
 5. The testing suite needs to cover pre-HTML5 browsers where the Geolocation API is not available.
+
+## Assumptions
+
+1. We assume that the browser is HTML5 enabled.
+2. We assume a non-malicious router setup with safe WiFi (`http` assumes good intent from all parties)
+3. We assume the reliability of the Firebase service. If this service is down, database writes may fail, which could prevent successful authentication.
+4. If the HTML5 Geolocation API is blocked, we assume that the IP isn't spoofed. If the API is blocked and the IP is spoofed, the login attempt may have no idea where the request came from.
+5. We assume that the user isn't visually impaired. There has been little focus on making the site accessible to those surfing the net with disabilities.
+6. We assume that this site is accessed from Earth. GPS won't work well on Mars ;)
+
 
 [Login]: https://i.imgur.com/8YjMgZp.png
 [Success]: https://i.imgur.com/05LfivJ.png
